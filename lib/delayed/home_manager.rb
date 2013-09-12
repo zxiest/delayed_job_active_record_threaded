@@ -1,16 +1,18 @@
 require 'date_core'
+require 'celluloid'
+require 'timers'
 
 module Delayed
   class HomeManager
-    DEFAULT_SLEEP_TIME = 5
+    include Celluloid
+
+    DEFAULT_SLEEP_TIME = 2
     DEFAULT_JOBS_TO_PULL = 20
     DEFAULT_WORKERS_NUMBER = 16
-    DEFAULT_WORKER_OPTIONS = {
-        :sleep_time => 0.5
-    }
     DEFAULT_TIMEOUT = 20
+    DEFAULT_MAX_ATTEMPTS = 25
 
-    attr_accessor :alive, :sleep_time, :timeout, :workers_number, :worker_options, :queue, :workers_pool
+    attr_accessor :alive, :timeout, :sleep_time, :workers_number, :queue, :workers_pool, :max_attempts, :worker_options, :timer
 
     def initialize(options=nil)
       self.alive = true
@@ -21,49 +23,54 @@ module Delayed
         @worker_options = options[:worker_options]
         @queue = options[:queue]
         @timeout = options[:timeout]
+        @max_attempts = options[:max_attempts]
       end
 
       @sleep_time ||= DEFAULT_SLEEP_TIME
-      @workers_number ||= DEFAULT_WORKERS_NUMBER
-      @worker_options ||= DEFAULT_WORKER_OPTIONS
       @timeout ||= DEFAULT_TIMEOUT
-
-      @workers_pool = Delayed::HomePool.new(@workers_number, @worker_options)
+      @workers_number ||= DEFAULT_WORKERS_NUMBER
+      @max_attempts ||= DEFAULT_MAX_ATTEMPTS
+      @worker_options ||= {}
     end
 
     def start
-      t = Thread.new do
-        while (@alive)
-          begin
-            Timeout.timeout(@timeout) do
-              #puts "doing work for queue #{@queue}"
-              available_workers = @workers_pool.get_available_workers
+      @workers_pool = HomeWorker.pool(:size => @workers_number, :args => @worker_options)
 
-              if (available_workers && available_workers.count > 0)
-                DelayedJobActiveRecordThreaded.logger.info "#{available_workers.count} available workers" if DelayedJobActiveRecordThreaded.logger
-                jobs = pull_next(@queue, available_workers.count)
-                available_workers.each_with_index { |w,i| w.assign_job(jobs[i]) }
-              end
-            end
-          rescue
-            begin
-              DelayedJobActiveRecordThreaded.logger.error($!.backtrace.join("\n")) if DelayedJobActiveRecordThreaded.logger
-            rescue
-              # logging failed probably due to IO error?
-            end
+      @timer = every(@sleep_time) {
+        begin
+          if (!@alive)
+            @timer.stop
           end
-          sleep(@sleep_time)
+
+          jobs = pull_next(@queue, @workers_pool.idle_size)
+          jobs.each { |j| @workers_pool.async.work(j) }
+        rescue
+          # logging error watch
+          begin
+            DelayedJobActiveRecordThreaded.logger.error($!.message) if DelayedJobActiveRecordThreaded.logger
+            DelayedJobActiveRecordThreaded.logger.error($!.backtrace.join("\n")) if DelayedJobActiveRecordThreaded.logger
+          rescue
+          end
         end
-      end
+      }
     end
 
     def pull_next(queue, n=15)
       #return  [ Delayed::FakeJob.new(queue) ] * n
-      query = Delayed::Job.where("run_at < ?", DateTime.now).order("priority asc, run_at asc, id asc").limit(n);#.lock(true);
-      if (queue)
-        return query.where("queue = ?", queue)
+      ids = []
+      Delayed::Job.transaction do
+        query = Delayed::Job.where("run_at < ? and locked_at is null", DateTime.now).order("priority asc, run_at asc, id asc")#.limit(n);#.lock(true);
+        if (queue)
+          query = query.where("queue = ?", queue)
+        end
+
+        query = query.limit(n)
+        ids = query.pluck(:id)
+        query.update_all(:locked_at => DateTime.now.utc)
       end
-      return query
+
+
+      return Delayed::Job.where(:id => ids)
     end
 
     def kill

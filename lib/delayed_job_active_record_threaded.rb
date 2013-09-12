@@ -24,7 +24,7 @@ class DelayedJobActiveRecordThreaded
   end
 end
 
-to_require = %w(home_manager home_pool home_worker fake_job job)
+to_require = %w(home_manager home_worker fake_job job)
 to_require.each do |f|
   require "#{File.dirname(__FILE__)}/delayed/#{f}"
 end
