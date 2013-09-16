@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130812145450_create_delayed_jobs.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/delayed/home_manager.rb" afterPath="$PROJECT_DIR$/lib/delayed/home_manager.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/delayed/home_worker.rb" afterPath="$PROJECT_DIR$/lib/delayed/home_worker.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="delayed_job_active_record_threaded.iws" />
@@ -181,15 +176,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fake_job.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/delayed/fake_job.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="33" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="job.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/delayed/job.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -208,10 +194,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_worker.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="home_worker.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/delayed/home_worker.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="32" selection-start="1571" selection-end="1571" vertical-scroll-proportion="1.2877584">
+            <state line="10" column="58" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="3" selection-start="153" selection-end="153" vertical-scroll-proportion="0.37383178">
               <folding />
             </state>
           </provider>
@@ -235,7 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/delayed/job.rb" />
         <option value="$PROJECT_DIR$/lib/delayed/fake_job.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/test/test_helper.rb" />
@@ -251,6 +245,7 @@
         <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" />
         <option value="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" />
         <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -493,13 +488,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/delayed_job_active_record_threaded.gemspec">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="49" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" />
@@ -598,7 +586,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/delayed/home_worker.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="32" selection-start="1571" selection-end="1571" vertical-scroll-proportion="1.2877584">
+        <state line="10" column="58" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="3" selection-start="153" selection-end="153" vertical-scroll-proportion="0.37383178">
           <folding />
         </state>
       </provider>
