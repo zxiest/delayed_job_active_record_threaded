@@ -2,20 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/delayed/home_pool.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/delayed_job_active_record_threaded.gemspec" afterPath="$PROJECT_DIR$/delayed_job_active_record_threaded.gemspec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb" afterPath="$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb" afterPath="$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130812145450_create_delayed_jobs.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/delayed/home_manager.rb" afterPath="$PROJECT_DIR$/lib/delayed/home_manager.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/delayed/home_worker.rb" afterPath="$PROJECT_DIR$/lib/delayed/home_worker.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" afterPath="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="delayed_job_active_record_threaded.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1378989913266" ignored="false" />
+    <file path="/Dummy.txt" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379147669679" ignored="false" />
     <file path="/delayed_job_active_record_threaded.gemspec" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1378990250296" ignored="false" />
     <file path="/fake_job.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375175556698" ignored="false" />
-    <file path="/home_manager.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1378999279763" ignored="false" />
+    <file path="/home_manager.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379149681890" ignored="false" />
     <file path="/delayed_job_active_record_threaded.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375258833471" ignored="false" />
     <file path="/home_worker.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1378993514103" ignored="false" />
     <file path="/test_delayed_job_active_record_threaded.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375176635842" ignored="false" />
@@ -26,10 +26,10 @@
     <file path="/delayed_job_active_record_threaded_test.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1378999858336" ignored="false" />
     <file path="/helper.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375175970731" ignored="false" />
     <file path="/database.yml" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1376314298605" ignored="false" />
-    <file path="/upgrade_generator.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375177691539" ignored="false" />
+    <file path="/upgrade_generator.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379341122100" ignored="false" />
     <file path="/active_record_generator.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377004497578" ignored="false" />
-    <file path="/migration.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375190488560" ignored="false" />
-    <file path="/upgrade_migration.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375190564713" ignored="false" />
+    <file path="/migration.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379340910220" ignored="false" />
+    <file path="/upgrade_migration.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379341555760" ignored="false" />
     <file path="/next_migration_version.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375177814106" ignored="false" />
     <file path="/20130730095555_create_delayed_jobs.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375183854298" ignored="false" />
     <file path="/job.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375190887307" ignored="false" />
@@ -73,7 +73,7 @@
     <file path="$PROJECT_DIR$/../ingrooves/lib/events/event_processor.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375278427887" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/Gemfile" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377690160051" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/lib/delayed/home_pool.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375278427887" ignored="false" />
-    <file path="$PROJECT_DIR$/../ingrooves/lib/delayed/home_manager.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377174546211" ignored="false" />
+    <file path="$PROJECT_DIR$/../ingrooves/lib/delayed/home_manager.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379147721770" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/lib/delayed/fake_job.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375278427887" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/lib/communication/communication_logger.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375278427887" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/app/models/event.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1375278427887" ignored="false" />
@@ -104,6 +104,10 @@
     <file path="/ebook.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377252093876" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/test/lib/communication/ebook_communication_manager_test.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377612875817" ignored="false" />
     <file path="$PROJECT_DIR$/../ingrooves/app/assets/javascripts/goods.js.erb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1377689451319" ignored="false" />
+    <file path="$PROJECT_DIR$/../testy/Gemfile" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379150647841" ignored="false" />
+    <file path="$PROJECT_DIR$/../ingrooves/script/cmds.txt" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379234249996" ignored="false" />
+    <file path="/cmds.txt" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379234249996" ignored="false" />
+    <file path="$PROJECT_DIR$/../testy/db/schema.rb" changelist="1e880ca9-a86d-409b-8b90-7f3f8a594d2d" time="1379341704291" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +130,43 @@
       <file leaf-file-name="active_record_generator.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/active_record_generator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="53" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+            <state line="8" column="42" selection-start="336" selection-end="402" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="next_migration_version.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/next_migration_version.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upgrade_generator.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="3" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="migration.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="25" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upgrade_migration.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="13" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,7 +175,7 @@
       <file leaf-file-name="home_manager.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/delayed/home_manager.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="21" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
+            <state line="9" column="42" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -150,37 +190,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_worker.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="job.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/delayed/job.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="6" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delayed_job_active_record_threaded.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="54" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_worker.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/delayed/home_worker.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="28" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delayed_job_active_record_threaded_test.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="57" selection-start="514" selection-end="514" vertical-scroll-proportion="0.47694755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="14" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="34" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
+            <state line="54" column="32" selection-start="1571" selection-end="1571" vertical-scroll-proportion="1.2877584">
               <folding />
             </state>
           </provider>
@@ -204,9 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20130730095555_create_delayed_jobs.rb" />
-        <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" />
-        <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" />
         <option value="$PROJECT_DIR$/lib/delayed/job.rb" />
         <option value="$PROJECT_DIR$/lib/delayed/fake_job.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
@@ -217,14 +245,17 @@
         <option value="$PROJECT_DIR$/delayed_job_active_record_threaded.gemspec" />
         <option value="$APPLICATION_HOME_DIR$/rubystubs20/module.rb" />
         <option value="$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb" />
+        <option value="$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb" />
         <option value="$PROJECT_DIR$/lib/delayed/home_worker.rb" />
         <option value="$PROJECT_DIR$/lib/delayed/home_manager.rb" />
-        <option value="$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb" />
+        <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb" />
+        <option value="$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb" />
+        <option value="$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
+    <option name="x" value="-1" />
     <option name="y" value="22" />
     <option name="width" value="1420" />
     <option name="height" value="790" />
@@ -274,85 +305,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generators" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="delayed_job_active_record_threaded" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ingrooves" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testy" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
@@ -450,14 +409,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1420" height="790" extended-state="0" />
+    <frame x="-1" y="22" width="1420" height="790" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28966522" sideWeight="0.6724387" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29403204" sideWeight="0.6724387" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -534,13 +493,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="36" selection-end="36" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -550,21 +502,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/delayed_job_active_record_threaded.gemspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="49" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="49" selection-start="1260" selection-end="1260" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/module.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="426" column="8" selection-start="14527" selection-end="14527" vertical-scroll-proportion="0.33221477">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/delayed/job.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="29" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -576,44 +519,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/active_record_generator.rb">
+    <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="53" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+        <state line="19" column="34" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb">
+    <entry file="file://$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="54" selection-start="614" selection-end="614" vertical-scroll-proportion="0.65436244">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130812145450_create_delayed_jobs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="819" selection-end="828" vertical-scroll-proportion="0.23847377">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/next_migration_version.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/delayed/home_worker.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="28" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.0">
+        <state line="20" column="57" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -625,23 +540,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
+    <entry file="file://$PROJECT_DIR$/lib/delayed/job.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="34" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0">
+        <state line="11" column="6" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/delayed_job_active_record_threaded.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="54" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/next_migration_version.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/active_record_generator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="42" selection-start="336" selection-end="402" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/delayed/home_manager.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="21" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0">
+        <state line="9" column="42" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/delayed_job_active_record_threaded_test.rb">
+    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/upgrade_generator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="57" selection-start="514" selection-end="514" vertical-scroll-proportion="0.47694755">
+        <state line="2" column="3" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/templates/migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="25" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/generators/delayed_job/templates/upgrade_migration.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/delayed/home_worker.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="32" selection-start="1571" selection-end="1571" vertical-scroll-proportion="1.2877584">
           <folding />
         </state>
       </provider>

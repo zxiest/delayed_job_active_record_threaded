@@ -60,41 +60,5 @@ module Delayed
       rescue
       end
     end
-
-    #def work
-    #  return if !@job
-    #
-    #  @mutex.synchronize {
-    #    delayable_type = @job.delayable_type
-    #    delayable_id = @job.delayable_id
-    #    jid = @job.id
-    #
-    #    if (@job && @job.respond_to?(:invoke_job))
-    #      t = DateTime.now.to_f
-    #      begin
-    #        @job.invoke_job
-    #        @job.delete
-    #        delta = DateTime.now.to_f - t
-    #      rescue
-    #        if (@job.attempts <= @max_attempts)
-    #          @job.attempts += 1
-    #          @job.run_at = (@job.attempts ** 4 + 5).seconds.from_now
-    #          @job.save
-    #        end
-    #        delta = DateTime.now.to_f - t
-    #      end
-    #
-    #      if delayable_type && delayable_id
-    #        DelayedJobActiveRecordThreaded.logger.info "[#{DateTime.now.to_s}] Job for #{delayable_type} delayable_id #{delayable_id} completed in #{delta} seconds" if DelayedJobActiveRecordThreaded.logger
-    #      else
-    #        DelayedJobActiveRecordThreaded.logger.info "[#{DateTime.now.to_s}] Job #{jid} completed in #{delta} seconds" if DelayedJobActiveRecordThreaded.logger
-    #      end
-    #
-    #      # done
-    #      @job = nil
-    #    end
-    #  }
-    #end
-
   end
 end
