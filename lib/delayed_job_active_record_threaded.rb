@@ -28,3 +28,5 @@ to_require = %w(home_manager home_worker fake_job job)
 to_require.each do |f|
   require "#{File.dirname(__FILE__)}/delayed/#{f}"
 end
+
+require "#{File.dirname(__FILE__)}/delayed/railtie" if defined?(Rails)
