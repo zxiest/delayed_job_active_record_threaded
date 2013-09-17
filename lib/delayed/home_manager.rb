@@ -77,9 +77,9 @@ module Delayed
     def pull_next(queue=nil, n=15)
       ids = []
       Delayed::Job.transaction do
-        query = Delayed::Job.where("run_at < ? and locked_at is null", DateTime.now).order("priority asc, run_at asc, id asc")
+        query = Delayed::Job.where("(run_at is null or run_at < ?) and locked_at is null", DateTime.now).order("priority asc, run_at asc, id asc")
         if (queue)
-          query = query.where("queue = ?", queue)
+          query = query.where(:queue => queue)
         end
 
         query = query.limit(n)

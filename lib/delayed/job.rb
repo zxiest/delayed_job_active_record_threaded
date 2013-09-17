@@ -7,6 +7,8 @@ module Delayed
   class Job < ::ActiveRecord::Base
     include Delayed::Backend::Base
 
+    attr_accessible :queue, :priority, :payload_object, :delayable_id, :delayable_type
+
     self.table_name = "delayed_jobs"
   end
 end
