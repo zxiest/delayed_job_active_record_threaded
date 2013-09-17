@@ -20,6 +20,10 @@ module Delayed
       sleep(rand * 5)
     end
 
+    def perform
+      invoke_job
+    end
+
     def delete
       DelayedJobActiveRecordThreaded.logger.info "deleting job #{@id}" if DelayedJobActiveRecordThreaded.logger
     end

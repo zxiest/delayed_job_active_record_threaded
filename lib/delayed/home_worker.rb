@@ -24,15 +24,13 @@ module Delayed
       delayable_type = job.delayable_type
       delayable_id = job.delayable_id
       jid = job.id
-      #puts "working job: #{jid}"
 
+      t = DateTime.now.to_f
       if (job && job.respond_to?(:invoke_job))
-        t = DateTime.now.to_f
         begin
           Timeout.timeout(@timeout) do
             job.invoke_job
             job.delete
-            delta = DateTime.now.to_f - t
           end
         rescue
           if (job.attempts <= @max_attempts)
