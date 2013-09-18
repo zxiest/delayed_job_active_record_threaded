@@ -30,6 +30,7 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
 
   # this is VERY dependent on the database pool size
   test "should process jobs without crashing" do
+    Celluloid.boot # fixes Celluloid issue "Thread pool is not running"
     mgr = Delayed::HomeManager.new({ :sleep_time => 1, :workers_number => 25, :queue => QUEUE_NAME })
 
     puts "Number of jobs in queue is: #{Delayed::Job.count}"

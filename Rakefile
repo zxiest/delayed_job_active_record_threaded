@@ -5,6 +5,7 @@ require 'active_record'
 require 'active_support'
 require 'active_support/core_ext'
 require 'delayed_job'
+require 'rack/utils'
 
 Rake::TestTask.new do |t|
   t.libs << 'test'
@@ -88,4 +89,8 @@ task :rollback do
   end
 
   ::ActiveRecord::Base.clear_all_connections!
+end
+
+task :default do
+  Rake::Task["test"].invoke
 end

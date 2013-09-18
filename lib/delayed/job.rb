@@ -1,6 +1,11 @@
 require 'active_record'
 require 'delayed_job'
 
+begin
+require 'protected_attributes'
+rescue LoadError
+end
+
 module Delayed
   # A job object that is persisted to the database.
   # Contains the work object as a YAML field.
