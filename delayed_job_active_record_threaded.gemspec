@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency   'activerecord', ['>= 3.0', '< 4.1']
   spec.add_dependency   'delayed_job',  ['>= 3.0', '< 4.1']
   spec.add_dependency   'celluloid', ['>=0.14.1']
-  spec.version = "0.0.3.beta"
+  spec.version = "0.0.3"
 end
