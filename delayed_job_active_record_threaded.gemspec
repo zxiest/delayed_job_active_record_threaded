@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "turn"
   spec.add_development_dependency "rake"
   spec.add_development_dependency 'sqlite3-ruby', '>= 1.3.1'
-  spec.add_development_dependency "activerecord-mysql2-adapter"
+  spec.add_development_dependency "mysql2"
   spec.add_dependency   'activerecord', ['>= 3.0', '< 4.1']
   spec.add_dependency   'delayed_job',  ['>= 3.0', '< 4.1']
   spec.add_dependency   'celluloid', ['>=0.14.1']
