@@ -1,3 +1,7 @@
+before_script:
+  - mysql -e 'create database delayed_job_test;'
+  - psql -c 'create database delayed_job_test;' -U postgres
+
 language: ruby
 only:
   - master
