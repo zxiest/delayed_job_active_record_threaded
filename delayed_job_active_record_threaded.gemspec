@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "minitest", "~> 4.7.3"
-  spec.add_development_dependency "minitest-rails", "~> 4.7.3"
+  spec.add_development_dependency "minitest-rails", "~> 0.9.1"
   spec.add_development_dependency "rails", ['>= 3.0', '< 4.1']
   spec.add_development_dependency "protected_attributes"
   spec.add_development_dependency "turn"
