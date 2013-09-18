@@ -72,7 +72,7 @@ namespace :delayed_job do
   task :start, [ :args_expr ] => :environment do |t, args|
     puts "#{args[:args_expr]}"
 
-    cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && [ ps -p `cat #{dj_pid}` > /dev/null ]; then sudo kill -9 `cat #{dj_pid}`; fi
+    cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && ps -p `cat #{dj_pid}` > /dev/null; then kill `cat #{dj_pid}`; fi
             (bundle exec rake "delayed_job:run[#{args[:args_expr]}]" >> log/delayed_job.log 2>&1) & (echo $! > #{dj_pid})
            )
 
@@ -83,7 +83,7 @@ namespace :delayed_job do
   end
 
   task :stop => :environment do |t, args|
-    cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && [ ps -p `cat #{dj_pid}` > /dev/null ]; then kill -9 `cat #{dj_pid}`; fi)
+    cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && ps -p `cat #{dj_pid}` > /dev/null; then kill -9 `cat #{dj_pid}`; fi)
 
     # execute cmd
     %x(#{cmd})
