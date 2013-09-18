@@ -2,11 +2,11 @@ require 'rack/utils'
 
 namespace :dj do
   task :run, [:args_expr ] => :environment do |t,args|
-    Rake::Task["delayed_job:run"].invoke(args[:args_expr].nil? ? args : args[:args_expr])
+    Rake::Task["delayed_job:run"].invoke(args[:args_expr])
   end
 
   task :start, [:args_expr ] => :environment do |t,args|
-    Rake::Task["delayed_job:start"].invoke(args[:args_expr].nil? ? args : args[:args_expr])
+    Rake::Task["delayed_job:start"].invoke(args[:args_expr])
   end
 
   task :stop, [:args_expr ] => :environment do |t,args|
@@ -18,7 +18,7 @@ namespace :dj do
   end
 
   task :print_options, [:args_expr ] => :environment do |t,args|
-    Rake::Task["delayed_job:print_options"].invoke(args[:args_expr].nil? ? args : args[:args_expr])
+    Rake::Task["delayed_job:print_options"].invoke(args[:args_expr])
   end
 end
 
@@ -73,7 +73,7 @@ namespace :delayed_job do
     puts "#{args[:args_expr]}"
 
     cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && [ ps -p `cat #{dj_pid}` > /dev/null ]; then sudo kill -9 `cat #{dj_pid}`; fi
-            (bundle exec rake "delayed_job:run[#{args[:args_expr]}]" >> log/delayed_job.log 2>&1) & (echo $! > tmp/pids/dj.pid)
+            (bundle exec rake "delayed_job:run[#{args[:args_expr]}]" >> log/delayed_job.log 2>&1) & (echo $! > #{dj_pid})
            )
 
     puts "executing: #{cmd}"
