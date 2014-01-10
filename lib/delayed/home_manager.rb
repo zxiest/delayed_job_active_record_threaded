@@ -49,11 +49,11 @@ module Delayed
       @timer = every(@sleep_time) {
         begin
           if (!@alive)
-            @timer.stop
+            @timer.cancel
+          else
+            jobs = pull_next(@queue, @workers_pool.idle_size)
+            jobs.each { |j| @workers_pool.async.work(j) }
           end
-
-          jobs = pull_next(@queue, @workers_pool.idle_size)
-          jobs.each { |j| @workers_pool.async.work(j) }
         rescue
           # logging error watch
           begin
