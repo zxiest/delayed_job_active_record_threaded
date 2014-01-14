@@ -1,8 +1,8 @@
-require "test_helper"
-require "delayed_job_active_record_threaded"
-require "rails"
-require "rails/test_help"
-require "minitest/rails"
+require 'test_helper'
+require 'delayed_job_active_record_threaded'
+require 'rails'
+require 'rails/test_help'
+require 'minitest/rails'
 
 class TestJob < Struct.new(:id)
   def perform
@@ -14,16 +14,24 @@ end
 
 class CrashingJob < TestJob
   def perform
-    raise "failing job"
+    raise 'failing job'
   end
 end
 
 class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Unit::TestCase
   self.use_transactional_fixtures = false
 
-  QUEUE_NAME = "StoriesQueue"
+  QUEUE_NAME = 'StoriesQueue'
   WORKING_STORIES = 100
   CRASHING_STORIES = 10
+  STORIES_WITH_NO_QUEUE_NAME = 10
+
+  def prepare_stories_with_no_queue_name
+    STORIES_WITH_NO_QUEUE_NAME.times { |i|
+      s = Story.create!(:text => "Story #{i}")
+      Delayed::Job.enqueue(CrashingJob.new(s.id), :priority => i, :delayable_id => s.id, :delayable_type => s.class.name, :run_at => 10.seconds.ago)
+    }
+  end
 
   def prepare_failing_stories
     CRASHING_STORIES.times { |i|
@@ -45,7 +53,7 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
   end
 
   # this is VERY dependent on the database pool size
-  test "should process jobs without crashing" do
+  test 'should process jobs without crashing' do
     Celluloid.boot # fixes Celluloid issue "Thread pool is not running"
     mgr = Delayed::HomeManager.new({ :sleep_time => 1, :workers_number => 25, :queue => QUEUE_NAME })
 
@@ -59,10 +67,10 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
 
     puts "Number of threads: #{Thread.list.count}"
 
-    assert Delayed::Job.where("queue = ?", QUEUE_NAME).count == 0, "Expected to have an empty queue after 10 seconds. Queue size was #{Delayed::Job.count} instead"
+    assert Delayed::Job.where('queue = ?', QUEUE_NAME).count == 0, "Expected to have an empty queue after 10 seconds. Queue size was #{Delayed::Job.count} instead"
   end
 
-  test "pool should maintain the number of workers and not crash" do
+  test 'pool should maintain the number of workers and not crash' do
     Celluloid.boot # fixes Celluloid issue "Thread pool is not running"
     mgr = Delayed::HomeManager.new({ :sleep_time => 0.5, :workers_number => 50, :queue => QUEUE_NAME })
     mgr.start
@@ -70,12 +78,12 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
 
     assert mgr.workers_pool.size == 50, "Pool is expected to maintain its size, got size of #{mgr.workers_pool.size} instead"
 
-    assert mgr.alive, "Expected Manager to be alive after completing queue"
+    assert mgr.alive, 'Expected Manager to be alive after completing queue'
 
     mgr.kill
   end
 
-  test "should succeed and maintain pool size even if workers have crashing job" do
+  test 'should succeed and maintain pool size even if workers have crashing job' do
     prepare_failing_stories
 
     assert (Story.count == (CRASHING_STORIES+WORKING_STORIES)), "test expects to start with #{(CRASHING_STORIES+WORKING_STORIES)} stories, got #{Story.count} instead"
@@ -88,7 +96,23 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
 
     assert mgr.workers_pool.size == 50, "Pool is expected to maintain its size, got size of #{mgr.workers_pool.size} instead"
 
-    assert mgr.alive, "Expected Manager to be alive after completing queue"
+    assert mgr.alive, 'Expected Manager to be alive after completing queue'
+
+    mgr.kill
+  end
+
+  test 'should work if things are queued without a queue name' do
+    prepare_stories_with_no_queue_name
+
+    Celluloid.boot # fixes Celluloid issue "Thread pool is not running"
+    mgr = Delayed::HomeManager.new({ :sleep_time => 0.5, :workers_number => 50 })
+
+    mgr.start
+    sleep(3)
+
+    assert mgr.workers_pool.size == 50, "Pool is expected to maintain its size, got size of #{mgr.workers_pool.size} instead"
+
+    assert mgr.alive, 'Expected Manager to be alive after completing queue'
 
     mgr.kill
   end
