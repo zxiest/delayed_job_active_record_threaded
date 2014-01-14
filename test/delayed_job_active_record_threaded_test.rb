@@ -116,4 +116,16 @@ class DelayedJobActiveRecordThreadedTest < ActiveSupport::TestCase #MiniTest::Un
 
     mgr.kill
   end
+
+  test 'should not touch a queue that we are not processing' do
+    prepare_stories_with_no_queue_name
+
+    Celluloid.boot # fixes Celluloid issue "Thread pool is not running"
+    mgr = Delayed::HomeManager.new({ :sleep_time => 0.5, :workers_number => 50, :queue => QUEUE_NAME })
+
+    mgr.start
+    sleep(3)
+
+    assert Delayed::Job.where('queue is null').count == STORIES_WITH_NO_QUEUE_NAME, "Expected jobs in queue NIL to remain untouched. Instead, got only #{Delayed::Job.count} remaining"
+  end
 end

@@ -52,7 +52,7 @@ namespace :delayed_job do
       workers_timeout ||= DEFAULT_WORKERS_TIMEOUT
 
       # set to nil of queue_name is default
-      queue_name = nil if (queue_name == "default")
+      queue_name = nil if (queue_name == 'default')
 
       puts "queue: #{queue_name}, workers_number: #{workers_number}, workers_timeout: #{workers_timeout}"
 
@@ -66,14 +66,20 @@ namespace :delayed_job do
   end
 
   def dj_pid
-    return 'tmp/pids/delayed_job.pid'
+    return "tmp/pids/delayed_job_#{Rails.env}.pid" if Rails.env
+    'tmp/pids/delayed_job.pid'
+  end
+
+  def delayed_job_output
+    return "log/delayed_job_#{Rails.env}.log" if Rails.env
+    'log/delayed_job.log'
   end
 
   task :start, [ :args_expr ] => :environment do |t, args|
     puts "#{args[:args_expr]}"
 
     cmd = %(if [ -f #{dj_pid} ] && [ -n `cat #{dj_pid}` ] && ps -p `cat #{dj_pid}` > /dev/null; then kill `cat #{dj_pid}`; fi
-            (bundle exec rake "delayed_job:run[#{args[:args_expr]}]" >> log/delayed_job.log 2>&1) & (echo $! > #{dj_pid})
+            (RAILS_ENV=#{Rails.env} bundle exec rake "delayed_job:run[#{args[:args_expr]}]" >> #{delayed_job_output} 2>&1) & (echo $! > #{dj_pid})
            )
 
     puts "executing: #{cmd}"

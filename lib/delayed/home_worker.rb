@@ -37,6 +37,8 @@ module Delayed
             job.attempts += 1
             job.run_at = (job.attempts ** 4 + 5).seconds.from_now
             job.save
+          else
+            job.delete
           end
         end
 

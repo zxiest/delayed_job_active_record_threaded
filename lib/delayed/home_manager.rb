@@ -11,7 +11,6 @@ module Delayed
     DEFAULT_WORKERS_NUMBER = 16
     DEFAULT_TIMEOUT = 20
     DEFAULT_MAX_ATTEMPTS = 25
-    DEFAULT_QUEUE_NAME = 'default'
 
     attr_accessor :alive, :timeout, :sleep_time, :workers_number, :queue, :workers_pool, :max_attempts, :worker_options, :timer, :hostname
 
@@ -32,7 +31,8 @@ module Delayed
       @workers_number ||= DEFAULT_WORKERS_NUMBER
       @max_attempts ||= DEFAULT_MAX_ATTEMPTS
       @worker_options ||= {}
-      @queue ||= DEFAULT_QUEUE_NAME
+
+      # if @queue is nil, we'll pull from all queues
     end
 
     def start
@@ -76,15 +76,18 @@ module Delayed
 
     # pull n items from Delayed::Job
     # locks jobs until they're processed (the worker then deletes the job)
-    def pull_next(queue, n=15)
+    def pull_next(queue=nil, n=15)
       ids = []
       Delayed::Job.transaction do
         query = Delayed::Job.where('(run_at is null or run_at < ?) and locked_at is null', DateTime.now).order('priority asc, run_at asc, id asc')
-        if (queue)
+        if (queue && queue != 'default')
           query = query.where(:queue => queue)
-        else
+        # if the queue is 'default' or nil, this would be the "default queue"
+        elsif queue == 'default'
           query = query.where(:queue => ['default', nil])
         end
+        # if no queue name is provided, the "queue" column would be ignored
+        # therefore returning the list of all jobs in all queues
 
         query = query.limit(n)
         ids = query.pluck(:id)
