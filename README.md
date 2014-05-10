@@ -3,7 +3,7 @@
 <br/>
 DelayedJob allows you to execute long-running jobs at a later time. For more information on how to create and delay a job, follow https://github.com/collectiveidea/delayed_job
 
-This gem processes your delayed jobs with a single threaded process (instead of multiple processes). 
+This gem processes your delayed jobs with a single multi-threaded process (instead of multiple processes). 
 This helps avoid database deadlocks and saves computing resources.
 
 <hr/>
