@@ -1,6 +1,5 @@
 require 'minitest/unit'
 require 'minitest/autorun'
-require 'turn'
 
 
 require 'yaml'

@@ -1,3 +1,6 @@
+## v0.0.5
+* enabled for rails 4.1+
+
 ## v0.0.4
 
 * added tests
